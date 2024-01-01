@@ -9,8 +9,8 @@ This guide covers the configuration and use of Domain Name Systems. DNS serves a
 
 <h2>Environments and Technologies Used</h2>
 <ul>
-  <li>Microsoft Azure (Virtual Machines/Compute)</li>
-  <li>Remote Desktop</li>
+  <li>Microsoft Azure</li>
+  <li>Remote Desktop Connections</li>
   <li>Active Directory Domain Services</li>
   <li>Command Prompt</li>
 </ul>
@@ -27,24 +27,31 @@ This guide covers the configuration and use of Domain Name Systems. DNS serves a
 
 <h2>DNS Exercises</h2>
 
-<!-- <img src = "" width = 80% height = 80% /> -->
-
 <h3>A-Record</h3>
 
 <p>
   <ul>
-    <li>The "A" in A-Record stands for "address" and this is the most fundamental type of DNS record: pointing to the name of the IP address of a given domain.</li>
-    <li>Connect and log in to your Domain Controller and Client virtual machines as admins <b>(mydomain.com\jane_admin)</b></li>
-    <li>In the Client VM, open up Command Prompt and attempt to ping "mainframe" by entering the command <b>ping mainframe</b>; you will notice it will fail</li>
-    <ul>
-      <li><img src = "https://github.com/ColtonTrauCC/dns/assets/147654000/cef4c81c-bc99-4dcf-a546-10ecdd6935a9" width = 80% height = 80% /></li>
-    </ul>
-    <li>The same result also applies if we attempt and nslookup of the mainframe (command line <b>nslookup mainframe</b>) because we do not have a DNS record</li>
-    <li>To create a DNS A-Record, go to the Domain Controller VM and open the <b>DNS Manager</b>b> in the Server Manager Board and go to the domain you created within the <b>Forward Lookup Zones</b> tab (mydomain.com)</li>
+    <li>The most basic type of DNS record is an "A-Record" or address record. This shows the IP address of an associated domain.</li>
+    <li>Connect and log in to your Domain Controller and Client virtual machines as administrators</li>
+    <li>Within <b>Client1</b>, open up Command Prompt and attempt to ping "mainframe" by entering the command <b>ping mainframe</b>; notice that it fails. Our Client machine checks its cache for "mainframe" and gets nothing. Then it checks its host files, and finally it checks the DNS. Until we set an IP for "mainframe", our virtual machine doesnt know who to try and talk to :(</li>
+<p align="center">
+<img src="https://github.com/joshuafinchCC/DNS/assets/155266044/961e44fd-ab38-4809-938f-46f10352f644" height = 20% width = 60%/>
+</p>
+ <li>To create a DNS A-Record, use Remote Desktop to connect to <b>DC1</b> and open the <b>Server Manager</b>. Navigate to Tools->DNS and select DC1. The <b>Forward Lookup Zones</b> tab shows the human readable records (google etc.)that DC1 currently has on file.</li>
+    
+  <p align="center">
+<img src="https://github.com/joshuafinchCC/DNS/assets/155266044/a1a4e572-bed3-43f3-9c77-0c485dd74bd4" height = 20% width = 60%/>
+</p>
+    
     <li>Right click on the page and create a <b>New Host (A or AAAA)</b>. We will name the host <b>mainframe</b> and the IP address should be the same IP as the domain controller so that ping can resolve. Once the information is entered, click <b>Add Host</b> and refresh the DNS server so that the new record can be updated.</li>
     <ul>
       <li><img src = "https://github.com/ColtonTrauCC/dns/assets/147654000/ee7f533c-ae4d-4484-9854-9790a3766b20" width = 80% height = 80% /></li>
     </ul>
+
+ <p align="center">
+<img src="" height = 20% width = 60%/>
+</p>
+    
     <li>Head back to the Client VM and attempt to ping the mainframe again, the issue should be resolved and receive the ping successfully</li>
     <ul>
       <li><img src = "https://github.com/ColtonTrauCC/dns/assets/147654000/5f27f8a2-fc9f-4379-9f0d-b53a2b4312b3" width = 80% height = 80% /></li>
@@ -53,7 +60,9 @@ This guide covers the configuration and use of Domain Name Systems. DNS serves a
     </ul>
   </ul>
 </p>
-
+ <p align="center">
+<img src="" height = 20% width = 60%/>
+</p>
 <br />
 
 <h3>Local DNS Cache</h3>
