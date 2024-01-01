@@ -48,14 +48,12 @@ This guide covers the configuration and use of Domain Name Systems. DNS serves a
  <p align="center">
 <img src="https://github.com/joshuafinchCC/DNS/assets/155266044/fad97558-2393-4556-9581-4d916285537e" height = 20% width = 60%/>
 </p>
-    <li>Head back to the Client VM and attempt to ping the mainframe again, the issue should be resolved and receive the ping successfully</li>
-    <ul>
-      <li><img src = "https://github.com/ColtonTrauCC/dns/assets/147654000/5f27f8a2-fc9f-4379-9f0d-b53a2b4312b3" width = 80% height = 80% /></li>
-      <li>Performing an nslookup</li>
-      <li><img src = "https://github.com/ColtonTrauCC/dns/assets/147654000/e20d90fe-bf2d-4fbf-bbd6-a4b01def0515" width = 80% height = 80% /></li>
-    </ul>
-  </ul>
+    <li>Heading back to the Client VM and attemptting to ping the "mainframe" again, we should now see a successful ping!</li>
+    
+   <p align="center">
+<img src="https://github.com/joshuafinchCC/DNS/assets/155266044/086fe211-b77d-4e5a-9990-280cbc367d60" height = 20% width = 60%/>
 </p>
+
  <p align="center">
 <img src="" height = 20% width = 60%/>
 </p>
