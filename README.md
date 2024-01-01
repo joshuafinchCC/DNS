@@ -43,15 +43,11 @@ This guide covers the configuration and use of Domain Name Systems. DNS serves a
 <img src="https://github.com/joshuafinchCC/DNS/assets/155266044/a1a4e572-bed3-43f3-9c77-0c485dd74bd4" height = 20% width = 60%/>
 </p>
     
-    <li>Right click on the page and create a <b>New Host (A or AAAA)</b>. We will name the host <b>mainframe</b> and the IP address should be the same IP as the domain controller so that ping can resolve. Once the information is entered, click <b>Add Host</b> and refresh the DNS server so that the new record can be updated.</li>
-    <ul>
-      <li><img src = "https://github.com/ColtonTrauCC/dns/assets/147654000/ee7f533c-ae4d-4484-9854-9790a3766b20" width = 80% height = 80% /></li>
-    </ul>
+  <li>Right click on this page and create a <b>New Host (A or AAAA)</b>. We will name the host <b>mainframe</b> and the IP address should be the same IP as the domain controller so that ping can resolve. Once the information is entered, click <b>Add Host</b> and refresh the DNS server so that the new record can be updated. This is basically adding a new entry in our DNS phonebook, defining "mainframe" as the IP "10.0.0.4". Once added hit the refresh icon on the DNS manager window to refresh our A-Records.</li>
 
  <p align="center">
-<img src="" height = 20% width = 60%/>
+<img src="https://github.com/joshuafinchCC/DNS/assets/155266044/fad97558-2393-4556-9581-4d916285537e" height = 20% width = 60%/>
 </p>
-    
     <li>Head back to the Client VM and attempt to ping the mainframe again, the issue should be resolved and receive the ping successfully</li>
     <ul>
       <li><img src = "https://github.com/ColtonTrauCC/dns/assets/147654000/5f27f8a2-fc9f-4379-9f0d-b53a2b4312b3" width = 80% height = 80% /></li>
