@@ -54,34 +54,29 @@ This guide covers the configuration and use of Domain Name Systems. DNS serves a
 <img src="https://github.com/joshuafinchCC/DNS/assets/155266044/086fe211-b77d-4e5a-9990-280cbc367d60" height = 20% width = 60%/>
 </p>
 
- <p align="center">
-<img src="" height = 20% width = 60%/>
-</p>
 <br />
 
 <h3>Local DNS Cache</h3>
 
 <p>
   <ul>
-    <li>This showcases a DNS cache by creating a local DNS</li>
-    <li>In the Domain Controller VM, go back to the <b>DNS Manager</b> and locate the mainframe host we've created and edit the IP address to <b>8.8.8.8</b></li>
-    <ul>
-      <li><img src = "https://github.com/ColtonTrauCC/dns/assets/147654000/e0aa2757-b0a8-43d8-b57a-4abcc02a555c" width = 80% height = 80% /></li>
-    </ul>
-    <li>Back to the Client VM, ping the mainframe and you'll notice it pings the mainframe's old IP address and not 8.8.8.8. This is because the cache needs to be updated, more evidence of how it is the old cache is if we entered the command <b>ipconfig /displaydns</b></li>
-    <ul>
-      <li><img src = "https://github.com/ColtonTrauCC/dns/assets/147654000/4263bdc1-297f-4922-aa38-ae465dcbf177" width = 80% height = 80% /></li>
-    </ul>
-    <li>Still in the Client VM, run Command Prompt as Administrator and enter the command <b>ipconfig /flushdns</b> (it's a <i>very</i> helpful command for flushing the DNS for testing pings in IT) and observe the cache is now empty</li>
-    <ul>
-      <li><img src = "https://github.com/ColtonTrauCC/dns/assets/147654000/ca1c5129-1ba3-4c88-8da2-2614952472e4" width = 80% height = 80% /></li>
-    </ul>
-    <li>Attempt to ping mainframe again, and now the new record should appear</li>
-    <ul>
-      <li><img src = "https://github.com/ColtonTrauCC/dns/assets/147654000/2687c04b-e67d-4c8e-89bb-c60a6e7d3aff" width = 80% height = 80% /></li>
-    </ul>
-  </ul>
+    <li>Now we can observe how our client machine's DNS cache handles updates to our A-Records</li>
+    <li>Within <b>DC1</b>, head to the <b>DNS Manager</b> and locate the mainframe host we've created and edit the IP address to <b>8.8.8.8</b> (remember to refresh after any record changes)</li>
+    <p align="center">
+<img src="https://github.com/joshuafinchCC/DNS/assets/155266044/d43742b4-eb6e-406e-8b39-354ad729e406" height = 20% width = 60%/>
 </p>
+
+  <li>Heading back to the Client VM, ping the mainframe and you'll notice it pings the mainframe's old IP address and not 8.8.8.8. As our client virtual machine has a cache of the old IP address, it skips contacting DC1 for "updates". To get Client1 to ping our newly updated record, we must flush the cache.
+   <li>To do this, on <b>Client1</b> run Command Prompt as <b>Administrator</b> and enter the command <b>ipconfig /flushdns</b> and observe that the cache is now empty</li>
+   <p align="center">
+<img src="https://github.com/joshuafinchCC/DNS/assets/155266044/85d57cf9-2812-4087-b7bb-40e7dfb1924d" height = 20% width = 60%/>
+</p>
+
+ <li>Now if we try to ping the mainframe again, our client VM will pull from the updated DNS records</li>
+     <p align="center">
+<img src="https://github.com/joshuafinchCC/DNS/assets/155266044/e640df94-75d5-428e-8c1f-fd55b9bb470e" height = 20% width = 60%/>
+</p>
+    
 
 <br />
 
@@ -89,16 +84,24 @@ This guide covers the configuration and use of Domain Name Systems. DNS serves a
 
 <p>
   <ul>
-    <li>"CNAME" is abbreviated form of "Canonical Name:" pointing to a name to another name instead of to an IP address unlike A-Record</li>
-    <li>In the Domain Controller VM, open the <b>DNS Manager</b>b> in the Server Manager Board and go to the domain you created within the <b>Forward Lookup Zones</b> tab (mydomain.com)</li>
-    <li>Right click on the page and create a <b>New Alias (CNAME)</b>. We will name the alias <b>search</b> and the fully qualified domain name (FQDN) to any website such as <b>www.google.com</b>. Once the information is entered, click <b>OK</b> and refresh the DNS server so that the new record can be updated.</li>
-    <ul>
-      <li><img src = "https://github.com/ColtonTrauCC/dns/assets/147654000/e07da767-c221-4547-9258-8c0420e40619" width = 80% height = 80% /></li>
-    </ul>
+    <li>"CNAME" is abbreviated form of "Canonical Name". This basically records a name to another name instead of to an IP address unlike A-Record. With CNAME our machine can being set words such as "search" and associate it with websites such as google</li>
+    <li>Within <b>DC1</b>, open the <b>DNS Manager</b>b> and go to the domain we created within the <b>Forward Lookup Zones</b> tab</li>
+    <li>Right click on the page and create a <b>New Alias (CNAME)</b>. We will name the alias <b>search</b>, and the fully qualified domain name (FQDN) to any website such as <b>www.google.com</b>. Once the information is entered, click <b>OK</b> and refresh the DNS server so that the new record can be updated.</li>
+    
+
+<p align="center">
+<img src="https://github.com/joshuafinchCC/DNS/assets/155266044/83716053-7502-40a1-82fe-643dc7b02e9b" height = 20% width = 60%/>
+</p>
+    
     <li>Back to the Client VM, ping the record we've named "search" by the command <b>ping search</b> and observe the results of the CNAME Record. It should ping to the website listed in the FQDN (for this case, Google)</li>
     <ul>
       <li><img src = "https://github.com/ColtonTrauCC/dns/assets/147654000/22b54d0c-2c8a-4ed3-a3be-b5a752c13368" width = 80% height = 80% /></li>
     </ul>
+
+<p align="center">
+<img src="" height = 20% width = 60%/>
+</p>
+    
     <li>Performing the nslookup command with "search" (<b>nslookup search</b>) will result in an name server lookup for Google</li>
   </ul>
 </p>
