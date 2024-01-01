@@ -2,7 +2,7 @@
 <img src="https://github.com/joshuafinchCC/DNS/assets/155266044/a59adb21-a953-4845-8fa4-6c1e7373321c" height = 20% width = 60%/>
 </p>
 
-<h1 align = "center">Understanding & Building Intuition for DNS (Domain Name System)</h1>
+<h1 align = "center">Understanding and Using DNS (Domain Name System)</h1>
 This guide covers the configuration and use of Domain Name Systems. DNS serves as a kind of phonebook for the Internet, translating domain names to IP addresses. This allows your internet browser to load Internet resources such as "www.google.com" without already knowing the IP address associated with that website. This guide follows up from the <a href = "https://github.com/joshuafinchCC/Activedirectory-config">Installing and Configuring of an Active Directory Guide</a>. Here we will go through some simple exercises to understand how DNS works
 
 <br />
