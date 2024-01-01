@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://github.com/ColtonTrauCC/dns/assets/147654000/8efa60be-b00d-4932-9438-3a8640ff3cd5" height = 20% width = 20%/>
+<img src="https://github.com/joshuafinchCC/DNS/assets/155266044/a59adb21-a953-4845-8fa4-6c1e7373321c" height = 20% width = 60%/>
 </p>
 
 <h1 align = "center">Understanding & Building Intuition for DNS (Domain Name System)</h1>
