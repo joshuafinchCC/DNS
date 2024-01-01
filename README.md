@@ -93,17 +93,18 @@ This guide covers the configuration and use of Domain Name Systems. DNS serves a
 <img src="https://github.com/joshuafinchCC/DNS/assets/155266044/83716053-7502-40a1-82fe-643dc7b02e9b" height = 20% width = 60%/>
 </p>
     
-    <li>Back to the Client VM, ping the record we've named "search" by the command <b>ping search</b> and observe the results of the CNAME Record. It should ping to the website listed in the FQDN (for this case, Google)</li>
-    <ul>
-      <li><img src = "https://github.com/ColtonTrauCC/dns/assets/147654000/22b54d0c-2c8a-4ed3-a3be-b5a752c13368" width = 80% height = 80% /></li>
-    </ul>
-
+  <li>On the client VM, ping the record we've named "search" by the command <b>ping search</b> and observe the results of the CNAME Record. It should ping to the website listed in the FQDN (www.google.com)</li>
+   
 <p align="center">
-<img src="" height = 20% width = 60%/>
+<img src="https://github.com/joshuafinchCC/DNS/assets/155266044/1cc162a8-87fc-4922-86c4-d8a74d04ffc3" height = 20% width = 60%/>
 </p>
     
-    <li>Performing the nslookup command with "search" (<b>nslookup search</b>) will result in an name server lookup for Google</li>
+  <li>Performing the nslookup command with "search" (<b>nslookup search</b>) will result in an name server lookup for Google</li>
   </ul>
+
+  <p align="center">
+<img src="https://github.com/joshuafinchCC/DNS/assets/155266044/8e8f8d67-9483-46f8-ab2f-8e28d731f418" height = 20% width = 60%/>
 </p>
+
 
 <br />
