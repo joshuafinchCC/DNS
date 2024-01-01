@@ -3,7 +3,7 @@
 </p>
 
 <h1 align = "center">Understanding & Building Intuition for DNS (Domain Name System)</h1>
-This lab demonstrates the use of DNS and how to configure it. DNS serves as the phonebook of the Internet, translating domain names to IP addresses so browsers can load Internet resources (essentially why we don't need to type IP addresses to access Google.com). To see how it works in practice, this lab follows up from the <a href = "https://github.com/ColtonTrauCC/active-directory">installation and configuration of an Active Directory</a>. When configured and installed, we'll perform excercises with the client and domain controller virtual machines in order to understand DNS a bit better.
+This guide covers the configuration and use of Domain Name Systems. DNS serves as a kind of phonebook for the Internet, translating domain names to IP addresses. This allows your internet browser to load Internet resources such as "www.google.com" without already knowing the IP address associated with that website. This guide follows up from the <a href = "https://github.com/joshuafinchCC/Activedirectory-config">Installing and Configuring of an Active Directory Guide</a>. Here we will go through some simple exercises to understand how DNS works
 
 <br />
 
